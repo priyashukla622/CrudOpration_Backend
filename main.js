@@ -64,6 +64,8 @@
 const express = require("express");
 const app = express();
 const db = require('./db');
+require('dotenv').config();
+const port=process.env.PORT||5000
 const Menu = require("./models/Menu");
 const Person = require('./models/person');
 const bodyParser = require("body-parser");
@@ -78,8 +80,8 @@ const personRoutes=require("./routes/personRoutes")
 const menuRoutes=require("./routes/menuRoutes")
 app.use("/menu",menuRoutes)
 app.use("/person",personRoutes)
-app.listen(5000,() => {
-    console.log("server is running 5000");
+app.listen(port,() => {
+    console.log(`server is running${port} `);
 });
 
 // main
